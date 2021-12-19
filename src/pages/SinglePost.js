@@ -75,7 +75,9 @@ function SinglePost(props) {
             <Card fluid>
               <Card.Content>
                 <Card.Header>{username}</Card.Header>
-                <Card.Meta>{moment(createdAt).fromNow()}</Card.Meta>
+                <Card.Meta>
+                  {moment.unix(createdAt / 1000).fromNow(true)}
+                </Card.Meta>
                 <Card.Description>{body}</Card.Description>
               </Card.Content>
               <hr />
@@ -134,7 +136,9 @@ function SinglePost(props) {
                     <DeleteButton postId={id} commentId={comment.id} />
                   )}
                   <Card.Header>{comment.username}</Card.Header>
-                  <Card.Meta>{moment(comment.createdAt).fromNow()}</Card.Meta>
+                  <Card.Meta>
+                    {moment.unix(comment.createdAt / 1000).fromNow(true)}
+                  </Card.Meta>
                   <Card.Description>{comment.body}</Card.Description>
                 </Card.Content>
               </Card>
